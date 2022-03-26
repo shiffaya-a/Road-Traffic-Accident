@@ -4,10 +4,11 @@ import numpy as np
 import joblib
 from sklearn.ensemble import RandomForestClassifier
 from prediction import encode, getPredict_Model
-from load_model import get_model
+#from load_model import get_model
 import requests
 
-model=get_model(model_path=r'Model/RandomForestModel.joblib')
+#model=get_model(model_path=r'Model/RandomForestModel.joblib')
+model=joblib.load(r'Model/RandomForestModel.joblib')
 
 st.set_page_config(page_title="Accident Severity Prediction App",page_icon="🚧", layout="centered")
 #creating option list for dropdown menu
