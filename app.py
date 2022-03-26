@@ -8,7 +8,6 @@ from prediction import encode, getPredict_Model
 import requests
 
 #model=get_model(model_path=r'Model/RandomForestModel.joblib')
-model=joblib.load(r'Model/RandomForestModel.joblib')
 
 st.set_page_config(page_title="Accident Severity Prediction App",page_icon="🚧", layout="centered")
 #creating option list for dropdown menu
@@ -60,6 +59,8 @@ def main():
         submit = st.form_submit_button("Predict")
 
         if submit:
+            model=joblib.load(open(r'Model/RandomForestModel.joblib',"rb"))
+         
             Type_of_collision=encode(Type_of_collision,options_type_of_collision)
             Light_conditions=encode(Light_conditions,options_light_conditions)
             Vehicle_movement=encode(Vehicle_movement,options_vehicle_movement)
